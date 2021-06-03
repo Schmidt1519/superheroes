@@ -19,7 +19,6 @@ def detail(request, superhero_id):
 
 def create(request):
     if request.method == 'POST':
-        print(request)  # test. can remove
         name = request.POST.get('name')
         alter_ego = request.POST.get('alter_ego')
         primary_ability = request.POST.get('primary_ability')
@@ -32,9 +31,25 @@ def create(request):
         return render(request, 'superheroes/create.html')
 
 
-def edit(request):
-    pass
+def edit(request, superhero_id):
+    superhero_detail = Superhero.objects.get(id=superhero_id)
+    context = {"superhero_detail": superhero_detail}
+
+    if request.method == 'POST':
+        superhero_edit = Superhero.objects.get(id=superhero_id)
+        superhero_edit.name = request.POST.get('name')
+        superhero_edit.alter_ego = request.POST.get('alter_ego')
+        superhero_edit.primary_ability = request.POST.get('primary_ability')
+        superhero_edit.secondary_ability = request.POST.get('secondary_ability')
+        superhero_edit.catchphrase = request.POST.get('catchphrase')
+        superhero_edit.save()
+        return HttpResponseRedirect(reverse('superheroes:index'))
+    else:
+        return render(request, 'superheroes/edit.html', context)
 
 
-def delete(request):
-    pass
+def delete(request, superhero_id):
+    superhero_delete = Superhero.objects.get(id=superhero_id)
+    superhero_delete.delete()
+    context = {"superhero_delete": superhero_delete}
+    return render(request, 'superheroes/delete.html', context)

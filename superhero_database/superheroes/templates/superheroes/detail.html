@@ -17,6 +17,8 @@
     Catchphrase: {{superhero_detail.catchphrase}}
 </li></ul>
 
-<a href="{% url 'superheroes:index' %}">Home</a>
+<a href="{% url 'superheroes:index' %}">Back to Superhero Index</a>
+<a href="{% url 'superheroes:edit' superhero_detail.id %}">Edit Superhero</a>
+
 </body>
 </html>
