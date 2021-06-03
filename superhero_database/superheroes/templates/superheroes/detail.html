@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{superhero_detail.name}}'s Detail</title>
+</head>
+<body>
+<h1>{{superhero_detail.name}} Detail</h1>
+
+<ul><li>
+    Alter Ego: {{superhero_detail.alter_ego}}
+    Primary Ability: {{superhero_detail.primary_ability}}
+    Secondary Ability: {{superhero_detail.secondary_ability}}
+    Catchphrase: {{superhero_detail.catchphrase}}
+</li></ul>
+
+<a href="{% url 'superheroes:index' %}">Home</a>
+</body>
+</html>

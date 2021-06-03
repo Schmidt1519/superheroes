@@ -12,10 +12,14 @@ def index(request):
 
 
 def detail(request, superhero_id):
-    pass
+    superhero_detail = Superhero.objects.get(id=superhero_id)
+    context = {"superhero_detail": superhero_detail}
+    return render(request, 'superheroes/detail.html', context)
+
 
 def create(request):
     if request.method == 'POST':
+        print(request)  # test. can remove
         name = request.POST.get('name')
         alter_ego = request.POST.get('alter_ego')
         primary_ability = request.POST.get('primary_ability')
@@ -26,3 +30,11 @@ def create(request):
         return HttpResponseRedirect(reverse('superheroes:index'))
     else:
         return render(request, 'superheroes/create.html')
+
+
+def edit(request):
+    pass
+
+
+def delete(request):
+    pass
