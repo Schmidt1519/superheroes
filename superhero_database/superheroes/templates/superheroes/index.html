@@ -10,8 +10,9 @@
 <body>
 <h1>List of Superheroes</h1>
 <ul>
-    {% for superhero in all_superheroes %}
-    <li><h2> {{superhero.name}} </h2></li>
+    {% for item in all_superheroes %}
+    <li><h2> {{item.name}} </h2>
+<!--    <a href="{% url 'superheroes:detail' superheroes.id %}">See more detail</a></li>-->
     {% endfor %}
 </ul>
 </body>
