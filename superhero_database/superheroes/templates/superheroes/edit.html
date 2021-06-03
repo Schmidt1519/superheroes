@@ -5,21 +5,23 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit {{superhero_detail.name}}</title>
+    <title>Edit {{superhero_edit_detail.name}}</title>
 </head>
 <body>
-<h1>Edit {{superhero_detail.name}}</h1>
+<h1>Edit {{superhero_edit_detail.name}}</h1>
 
 <form method="post">
     {% csrf_token %}
-    Name:<input type="text" name="name" id="name" value="{{superhero_detail.name}}"><br>
-    Alter Ego:<input type="text" name="alter_ego" id="alter_ego" value="{{superhero_detail.alter_ego}}"><br>
-    Primary Ability:<input type="text" name="primary_ability" id="primary_ability" value="{{superhero_detail.primary_ability}}"><br>
-    Secondary Ability:<input type="text" name="secondary_ability" id="secondary_ability" value="{{superhero_detail.secondary_ability}}"><br>
-    Catchphrase:<input type="text" name="catchphrase" id="catchphrase" value="{{superhero_detail.catchphrase}}"><br>
+    Name:<input type="text" name="name" id="name" value="{{superhero_edit_detail.name}}"><br>
+    Alter Ego:<input type="text" name="alter_ego" id="alter_ego" value="{{superhero_edit_detail.alter_ego}}"><br>
+    Primary Ability:<input type="text" name="primary_ability" id="primary_ability" value="{{superhero_edit_detail.primary_ability}}"><br>
+    Secondary Ability:<input type="text" name="secondary_ability" id="secondary_ability" value="{{superhero_edit_detail.secondary_ability}}"><br>
+    Catchphrase:<input type="text" name="catchphrase" id="catchphrase" value="{{superhero_edit_detail.catchphrase}}"><br>
+    <br>
     <input type="submit" value="Save">
 </form>
 
+<br>
 <a href="{% url 'superheroes:index' %}">Back to Superhero Index</a>
 </body>
 </html>

@@ -32,8 +32,8 @@ def create(request):
 
 
 def edit(request, superhero_id):
-    superhero_detail = Superhero.objects.get(id=superhero_id)
-    context = {"superhero_detail": superhero_detail}
+    superhero_edit_detail = Superhero.objects.get(id=superhero_id)
+    context = {"superhero_edit_detail": superhero_edit_detail}
 
     if request.method == 'POST':
         superhero_edit = Superhero.objects.get(id=superhero_id)
@@ -49,7 +49,12 @@ def edit(request, superhero_id):
 
 
 def delete(request, superhero_id):
-    superhero_delete = Superhero.objects.get(id=superhero_id)
-    superhero_delete.delete()
-    context = {"superhero_delete": superhero_delete}
-    return render(request, 'superheroes/delete.html', context)
+    superhero_delete_detail = Superhero.objects.get(id=superhero_id)
+    context = {"superhero_delete_detail": superhero_delete_detail}
+
+    if request.method == 'POST':
+        superhero_delete = Superhero.objects.get(id=superhero_id)
+        superhero_delete.delete()
+        return HttpResponseRedirect(reverse('superheroes:index'))
+    else:
+        return render(request, 'superheroes/delete.html', context)
